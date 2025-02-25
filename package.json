@@ -1,0 +1,24 @@
+{
+  "name": "js-ocr-demo-with-tesseract",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "serve ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heraldofsolace/js-ocr-demo-with-tesseract.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/heraldofsolace/js-ocr-demo-with-tesseract/issues"
+  },
+  "homepage": "https://github.com/heraldofsolace/js-ocr-demo-with-tesseract#readme",
+  "description": "",
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}

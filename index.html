@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf_viewer.min.css" integrity="sha512-XYRLVU5scloPRU41FDEe7++i3JZRdR0jwy48SVx1fPptEhzQgMp/gagTyNwZXoNRhNH/A3Aj3emakRatx2OjbQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>OCR - Extraction de Texte</title>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-gray-800 mb-8 text-center">Extracteur de Texte PDF</h1>
+        
+        <div class="flex flex-col lg:flex-row gap-6">
+            <!-- Left Column - PDF Viewer -->
+            <div class="lg:w-1/2 bg-white rounded-lg shadow-lg p-6">
+                <div class="mb-6">
+                    <label for="uploadPDF" class="block text-sm font-medium text-gray-700 mb-2">Choisir un fichier PDF :</label>
+                    <input type="file" id="uploadPDF" class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500" accept="application/pdf">
+                </div>
+
+                <div id="pdfViewer" class="border border-gray-200 rounded-lg mb-4 flex items-center justify-center bg-gray-50 min-h-[500px]">
+                    <canvas id="canvas"></canvas>
+                </div>
+
+                <div class="flex items-center justify-between">
+                    <div class="flex space-x-2">
+                        <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition-colors" id="prev">Précédent</button>
+                        <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition-colors" id="next">Suivant</button>
+                    </div>
+                    <span class="text-gray-600">Page : <span id="page_num"></span> / <span id="page_count"></span></span>
+                </div>
+            </div>
+
+            <!-- Right Column - Extracted Text -->
+            <div class="lg:w-1/2">
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-xl font-semibold text-gray-800">Texte Extrait</h2>
+                        <div id="loading-indicator" class="hidden">
+                            <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-600"></div>
+                        </div>
+                    </div>
+                    <textarea 
+                        class="w-full h-[500px] border border-gray-300 rounded-md p-4 focus:ring-2 focus:ring-blue-500 focus:border-transparent" 
+                        id="extracted-text" 
+                        placeholder="Le texte extrait apparaîtra ici..."
+                        readonly
+                    ></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src='https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.min.mjs" type="module"></script>
+    <script src="./js/main.js" type="module"></script>
+</body>
+</html>
